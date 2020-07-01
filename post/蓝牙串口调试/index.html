@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>蓝牙串口调试 | Why的个人站</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://github.com/wanghy7317/wanghy7317.github.io/favicon.ico?v=1593570877437">
+<link rel="stylesheet" href="https://github.com/wanghy7317/wanghy7317.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="蓝牙串口调试
+
+蓝牙串口调试
+
+HC-06.pdf
+蓝牙模块HC-05AT指令集.pdf
+蓝牙进阶之路 (001) -  HC-05蓝牙无线模块设置
+蓝牙进阶之路 (002) -  HC-05与HC-06的AT指令的区别
+蓝牙进阶之路 (0..." />
+    <meta name="keywords" content="1,2,3" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://github.com/wanghy7317/wanghy7317.github.io">
+        <img src="https://github.com/wanghy7317/wanghy7317.github.io/images/avatar.png?v=1593570877437" class="site-logo">
+        <h1 class="site-title">Why的个人站</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      七两清晨
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+<br>辽ICP备19017768号</br> | <a class="rss" href="https://github.com/wanghy7317/wanghy7317.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">蓝牙串口调试</h2>
+            <div class="post-date">2020-07-01</div>
+            
+              <div class="feature-container" style="background-image: url('https://github.com/wanghy7317/wanghy7317.github.io/post-images/hello-gridea.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>蓝牙串口调试</p>
+<!-- more -->
+<h1 id="蓝牙串口调试">蓝牙串口调试</h1>
+<ol>
+<li><a href="E:%5CMarkdown%5CFile%5CHC-06.pdf">HC-06.pdf</a></li>
+<li><a href="E:%5CMarkdown%5CFile%5C%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97HC-05AT%E6%8C%87%E4%BB%A4%E9%9B%86.pdf">蓝牙模块HC-05AT指令集.pdf</a></li>
+<li><a href="https://www.cnblogs.com/jikexianfeng/p/7268849.html">蓝牙进阶之路 (001) -  HC-05蓝牙无线模块设置</a></li>
+<li><a href="https://www.cnblogs.com/jikexianfeng/p/6373027.html">蓝牙进阶之路 (002) -  HC-05与HC-06的AT指令的区别</a></li>
+<li><a href="https://www.cnblogs.com/jikexianfeng/p/6378204.html">蓝牙进阶之路 (003) -  AT指令</a></li>
+<li><a href="https://blog.csdn.net/seek97/article/details/81333701">两个蓝牙HC-05的完美配对 学习笔记</a></li>
+</ol>
+<h3 id="一-默认设置">一、默认设置</h3>
+<p>模块工作角色：从模式<br>
+串口参数：38400bits/s   停止位 1位   无校验位<br>
+配对码：1234<br>
+设备名称：HC-05<br>
+连接模式：任意蓝牙设备连接模式</p>
+<h3 id="二-用usb转ttl模块设置">二、用USB转TTL模块设置</h3>
+<ol>
+<li>
+<h4 id="蓝牙与usb转ttl模块连接方式">蓝牙与USB转TTL模块连接方式</h4>
+<ul>
+<li>
+<p>RXD-TX</p>
+</li>
+<li>
+<p>TXD-RX</p>
+</li>
+<li>
+<p>VCC-VCC（5V-5V）</p>
+</li>
+<li>
+<p>GND-GND</p>
+</li>
+<li>
+<p>EN引脚不用接</p>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="进入at模式">进入AT模式</h4>
+<p>首先让AT引脚置高，然后接上蓝牙模块（有按键则按住蓝牙上的按键，再接通电源，进入AT指令模式），这时候将转串口模块接入电脑，当蓝牙模块state灯变为慢闪，则表明已经进入AT模式。打开串口调试助手便可以开始设置AT模式。（具体AT指令参考HC05 AT指令集）</p>
+</li>
+<li>
+<h4 id="配置蓝牙-发送以下at指令后返回ok表示设置成功">配置蓝牙 （发送以下AT指令后返回OK表示设置成功）</h4>
+<ul>
+<li>恢复默认设置：<br>
+将蓝牙恢复默认设置：AT+ORGL\r\n（\r\n即回车、换行，在串口调试助手上输入一个回车即可）</li>
+<li>设置蓝牙名称：<br>
+配置蓝牙的名称：AT+NAME=Bluetooth-Marster\r\n（主）或 Bluetooth-Slave\r\n（从） 蓝牙名称为Bluetooth-Marster 或 Bluetooth-Slave</li>
+<li>设置配对码：<br>
+配置蓝牙的配对码：AT+PSWD=1212\r\n（蓝牙A与蓝牙B的配对码相同，这样才能成功配对）</li>
+<li>设置工作角色：<br>
+将蓝牙A配置为主机模式：AT+ROLE=1\r\n，并将将蓝牙B配置为从机模式：AT+ROLE=0\r\n</li>
+<li>配置串口参数：<br>
+配置波特率、停止位和校验位：AT+UART=115200,0,0\r\n，设置蓝牙通信串口波特率为115200，停止位1位，无校验位</li>
+<li>查询地址：<br>
+查询B蓝牙地址：AT+ADDR=？\r\n（如2015:2:120758）</li>
+<li>清空配对列表：<br>
+清空配对列表，方便配对新的蓝牙：AT+RMAAD\r\n</li>
+<li>连接模式：<br>
+配置蓝牙连接模式，若为任意地址连接模式则配置为0，无需进行地址绑定，否则配置为1，需要进行地址绑定：AT+CMODE=0\r\n（蓝牙连接模式为任意地址连接模式）</li>
+<li>蓝牙A绑定蓝牙B：<br>
+蓝牙A绑定蓝牙B地址：AT+BIND=2015,2,120758\r\n（注意把地址的冒号换成逗号）</li>
+</ul>
+</li>
+<li>
+<h4 id="返回常规工作模式">返回常规工作模式</h4>
+<p>2个模块的PIO11引脚都接地，重新上电后进入常规工作模式，自动完成配对。之后，串口调试助手A和串口调试助手B就能互传数据了。</p>
+</li>
+</ol>
+<h4 id="四-注意">四、注意</h4>
+<p>具体的AT指令需要查询你使用的那款蓝牙的AT手册，一般仅需要设置蓝牙的波特率、主从状态即可正常使用。<br>
+在设置AT时需注意：</p>
+<ol>
+<li>如何进入蓝牙的AT模式：有些模块如BT04-A上电便自动进入AT模式，如HC-05需要先按住模块左上角的按钮，然后上电，让某一引脚经历高电平台变为低电平的过程，即可进入AT指令设置模式。同时注意在实际HC-05的购买中，有些商家会直接将一些HC-05作为从机销售，所以有些HC-05模块没有焊接按钮，因此我们可以自己焊接按钮，或使用导电的物品（杜邦线、镊子），让那个引脚置高。<strong>对于HC-05来说，模块指示灯快闪表示蓝牙未连接，慢闪表示进入AT模式，双闪表示蓝牙已连接并打开端口。</strong></li>
+<li>打开串口助手，选择正确的端口号。</li>
+<li>设置AT需要在该模块规定的固定初始波特率下设置（HC-05为38400），而有些蓝牙模块需要在你上次设置的波特率下进行AT指令的发送。</li>
+<li>有些模块在发送AT指令时，需要在自己写在发送区的AT指令过后加回车&quot;\ｒ\n&quot;，同时注意区分大小写。</li>
+<li>具体有哪些AT指令以及它们的意义需要参考该模块的《AT指令集》</li>
+</ol>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://github.com/wanghy7317/wanghy7317.github.io/tag/2kB4RfHTS/" class="tag">
+                    1
+                  </a>
+                
+                  <a href="https://github.com/wanghy7317/wanghy7317.github.io/tag/0TKw6HOn4d/" class="tag">
+                    2
+                  </a>
+                
+                  <a href="https://github.com/wanghy7317/wanghy7317.github.io/tag/d73OtwVcU7/" class="tag">
+                    3
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://github.com/wanghy7317/wanghy7317.github.io/post/hello-gridea/">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
