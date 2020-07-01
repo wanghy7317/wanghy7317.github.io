@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://github.com/wanghy7317/wanghy7317.github.io</id>
     <title>Why的个人站</title>
-    <updated>2020-07-01T04:08:14.993Z</updated>
+    <updated>2020-07-01T04:54:50.079Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://github.com/wanghy7317/wanghy7317.github.io"/>
     <link rel="self" href="https://github.com/wanghy7317/wanghy7317.github.io/atom.xml"/>
@@ -11,290 +11,36 @@
     <icon>https://github.com/wanghy7317/wanghy7317.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Why的个人站</rights>
     <entry>
+        <title type="html"><![CDATA[class继承与super()函数]]></title>
+        <id>https://github.com/wanghy7317/wanghy7317.github.io/post/class继承与super()函数/</id>
+        <link href="https://github.com/wanghy7317/wanghy7317.github.io/post/class继承与super()函数/">
+        </link>
+        <updated>2020-07-01T04:52:15.000Z</updated>
+        <summary type="html"><![CDATA[<p>摘要</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>摘要</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Markdown语法]]></title>
         <id>https://github.com/wanghy7317/wanghy7317.github.io/post/Markdown语法/</id>
         <link href="https://github.com/wanghy7317/wanghy7317.github.io/post/Markdown语法/">
         </link>
-        <updated>2020-07-01T04:01:16.000Z</updated>
-        <summary type="html"><![CDATA[<p>预览</p>
+        <updated>2020-07-01T04:51:03.000Z</updated>
+        <summary type="html"><![CDATA[<p>摘要</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>预览</p>
-<!-- more -->
-<p>[TOC]</p>
-<h3 id="这是三级标题">这是三级标题</h3>
-<hr>
-<p><strong>加粗</strong>   注不能有空格<br>
- 一个汉字宽度<br>
- 半个汉字宽度<br>
- 不换行空格</p>
-<hr>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">制</th>
-<th style="text-align:center">表</th>
-<th style="text-align:right"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">冒号在左左对齐</td>
-<td style="text-align:center">中间居中</td>
-<td style="text-align:right">在右右对齐</td>
-</tr>
-<tr>
-<td style="text-align:left">英文状态下的标点</td>
-<td style="text-align:center"></td>
-<td style="text-align:right"></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><font size=1 >字大小为1（1-7）</font><br>
-<font color=#00ffff  >color=#00ffff</font><br>
-<font face="黑体">我是黑体字</font></p>
-<hr>
-<p>代码块</p>
-<pre><code class="language-C">    struct
-    {
-        int year;
-        int month;
-        int day;
-    }bdate;
-</code></pre>
-<p>如果在一个行内需要引用<code>代码</code>，只要用反引号<code>引起来就好(Esc键下)</code></p>
-<hr>
+        <content type="html"><![CDATA[<p>摘要</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[class继承]]></title>
-        <id>https://github.com/wanghy7317/wanghy7317.github.io/post/class继承与super()函数/</id>
-        <link href="https://github.com/wanghy7317/wanghy7317.github.io/post/class继承与super()函数/">
+        <title type="html"><![CDATA[第二次作业_201783104_王海洋]]></title>
+        <id>https://github.com/wanghy7317/wanghy7317.github.io/post/第二次作业_201783104_王海洋/</id>
+        <link href="https://github.com/wanghy7317/wanghy7317.github.io/post/第二次作业_201783104_王海洋/">
         </link>
-        <updated>2020-07-01T03:22:17.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<h1 id="1-继承">1 继承</h1>
-<ol>
-<li>在Python中，同时支持<strong>单继承与多继承</strong>，一般语法如下：</li>
-</ol>
-<pre><code class="language-python">class SubClassName(ParentClass1 [, ParentClass2, ...]):
-    class_suite
-</code></pre>
-<ol start="2">
-<li>实现继承之后，<strong>子类将继承父类的属性，也可以使用内建函数insubclass()来判断一个类是不是另一个类的子孙类</strong></li>
-</ol>
-<h1 id="2-super函数">2 super()函数</h1>
-<h2 id="21-描述">2.1 描述</h2>
-<p><strong>super()</strong> 函数是用于调用父类(超类)的一个方法。(根据MRO确定)</p>
-<p><strong>super和父类没有实质性的关联</strong>。（见实例）</p>
-<h2 id="22-语法">2.2 语法</h2>
-<pre><code class="language-python">super().xxx  #Python 3.x
-</code></pre>
-<h2 id="23-实例">2.3 实例</h2>
-<pre><code class="language-python"># 这是一个稍微复杂的多重继承的例子
-# 继承关系是【菱形继承】
-#      A
-#    /   \
-#   B     C
-#    \   /
-#      D
-
-
-class A():
-    def __init__(self):
-        print('enter A')
-        print('leave A')
-
-        
-class B(A):
-    def __init__(self):
-        print('enter B')
-        super().__init__()
-        print('leave B')
-
-        
-class C(A):
-    def __init__(self):
-        print('enter C')
-        super().__init__()
-        print('leave C')
-
-        
-class D(B, C):
-    def __init__(self):
-        print('enter D')
-        super().__init__()
-        print('leave D')
-
-        
-d = D()
-</code></pre>
-<p>执行结果是：</p>
-<pre><code class="language-python">enter D
-enter B
-enter C
-enter A
-leave A
-leave C
-leave B
-leave D
-</code></pre>
-<p>结果分析：</p>
-<ol>
-<li>
-<p>理解的关键点在于执行结果中的enter B的下一句为何是enter C而不是enter A</p>
-<p>原因是：super和父类没有实质性的关联，而是在 MRO 列表上搜索下一个类。</p>
-</li>
-</ol>
-<h2 id="24-mro列表">2.4 MRO列表</h2>
-<p>事实上，对于你定义的每一个类，Python 会通过<strong>C3 线性化算法</strong>计算出一个<strong>方法解析顺序（Method Resolution Order, MRO）列表</strong>，<strong>它代表了类继承的顺序</strong>，我们可以使用下面的方式获得某个类的 MRO 列表：</p>
-<pre><code class="language-python">&gt;&gt;&gt; D.mro()   # or C.__mro__ or C().__class__.mro()
-[__main__.D, __main__.B, __main__.C, __main__.A, object]
-</code></pre>
-<p>一个类的 MRO 列表就是合并所有父类的 MRO 列表，并遵循以下三条原则：</p>
-<ul>
-<li>子类永远在父类前面</li>
-<li>如果有多个父类，会根据它们在列表中的顺序被检查</li>
-<li>如果对下一个类存在两个合法的选择，选择第一个父类</li>
-</ul>
-<h2 id="25-super原理">2.5 super()原理</h2>
-<p>当执行<code>super().__init__()</code>时，python会先获取当前的MRO列表，然后搜索当前类的下一个类。</p>
-<p>所以enter B的下一句是enter C。</p>
-<p>参考资料：</p>
-<ol>
-<li>
-<p>https://blog.csdn.net/brucewong0516/article/details/79121179</p>
-</li>
-<li>
-<p>https://www.runoob.com/python/python-func-super.html</p>
-</li>
-<li>
-<p>https://wiki.jikexueyuan.com/project/explore-python/Class/super.html</p>
-</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[蓝牙串口调试]]></title>
-        <id>https://github.com/wanghy7317/wanghy7317.github.io/post/蓝牙串口调试/</id>
-        <link href="https://github.com/wanghy7317/wanghy7317.github.io/post/蓝牙串口调试/">
-        </link>
-        <updated>2020-06-30T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>蓝牙串口调试</p>
+        <updated>2020-07-01T04:50:35.000Z</updated>
+        <summary type="html"><![CDATA[<p>摘要</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>蓝牙串口调试</p>
-<!-- more -->
-<h1 id="蓝牙串口调试">蓝牙串口调试</h1>
-<ol>
-<li><a href="E:%5CMarkdown%5CFile%5CHC-06.pdf">HC-06.pdf</a></li>
-<li><a href="E:%5CMarkdown%5CFile%5C%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97HC-05AT%E6%8C%87%E4%BB%A4%E9%9B%86.pdf">蓝牙模块HC-05AT指令集.pdf</a></li>
-<li><a href="https://www.cnblogs.com/jikexianfeng/p/7268849.html">蓝牙进阶之路 (001) -  HC-05蓝牙无线模块设置</a></li>
-<li><a href="https://www.cnblogs.com/jikexianfeng/p/6373027.html">蓝牙进阶之路 (002) -  HC-05与HC-06的AT指令的区别</a></li>
-<li><a href="https://www.cnblogs.com/jikexianfeng/p/6378204.html">蓝牙进阶之路 (003) -  AT指令</a></li>
-<li><a href="https://blog.csdn.net/seek97/article/details/81333701">两个蓝牙HC-05的完美配对 学习笔记</a></li>
-</ol>
-<h3 id="一-默认设置">一、默认设置</h3>
-<p>模块工作角色：从模式<br>
-串口参数：38400bits/s   停止位 1位   无校验位<br>
-配对码：1234<br>
-设备名称：HC-05<br>
-连接模式：任意蓝牙设备连接模式</p>
-<h3 id="二-用usb转ttl模块设置">二、用USB转TTL模块设置</h3>
-<ol>
-<li>
-<h4 id="蓝牙与usb转ttl模块连接方式">蓝牙与USB转TTL模块连接方式</h4>
-<ul>
-<li>
-<p>RXD-TX</p>
-</li>
-<li>
-<p>TXD-RX</p>
-</li>
-<li>
-<p>VCC-VCC（5V-5V）</p>
-</li>
-<li>
-<p>GND-GND</p>
-</li>
-<li>
-<p>EN引脚不用接</p>
-</li>
-</ul>
-</li>
-<li>
-<h4 id="进入at模式">进入AT模式</h4>
-<p>首先让AT引脚置高，然后接上蓝牙模块（有按键则按住蓝牙上的按键，再接通电源，进入AT指令模式），这时候将转串口模块接入电脑，当蓝牙模块state灯变为慢闪，则表明已经进入AT模式。打开串口调试助手便可以开始设置AT模式。（具体AT指令参考HC05 AT指令集）</p>
-</li>
-<li>
-<h4 id="配置蓝牙-发送以下at指令后返回ok表示设置成功">配置蓝牙 （发送以下AT指令后返回OK表示设置成功）</h4>
-<ul>
-<li>恢复默认设置：<br>
-将蓝牙恢复默认设置：AT+ORGL\r\n（\r\n即回车、换行，在串口调试助手上输入一个回车即可）</li>
-<li>设置蓝牙名称：<br>
-配置蓝牙的名称：AT+NAME=Bluetooth-Marster\r\n（主）或 Bluetooth-Slave\r\n（从） 蓝牙名称为Bluetooth-Marster 或 Bluetooth-Slave</li>
-<li>设置配对码：<br>
-配置蓝牙的配对码：AT+PSWD=1212\r\n（蓝牙A与蓝牙B的配对码相同，这样才能成功配对）</li>
-<li>设置工作角色：<br>
-将蓝牙A配置为主机模式：AT+ROLE=1\r\n，并将将蓝牙B配置为从机模式：AT+ROLE=0\r\n</li>
-<li>配置串口参数：<br>
-配置波特率、停止位和校验位：AT+UART=115200,0,0\r\n，设置蓝牙通信串口波特率为115200，停止位1位，无校验位</li>
-<li>查询地址：<br>
-查询B蓝牙地址：AT+ADDR=？\r\n（如2015:2:120758）</li>
-<li>清空配对列表：<br>
-清空配对列表，方便配对新的蓝牙：AT+RMAAD\r\n</li>
-<li>连接模式：<br>
-配置蓝牙连接模式，若为任意地址连接模式则配置为0，无需进行地址绑定，否则配置为1，需要进行地址绑定：AT+CMODE=0\r\n（蓝牙连接模式为任意地址连接模式）</li>
-<li>蓝牙A绑定蓝牙B：<br>
-蓝牙A绑定蓝牙B地址：AT+BIND=2015,2,120758\r\n（注意把地址的冒号换成逗号）</li>
-</ul>
-</li>
-<li>
-<h4 id="返回常规工作模式">返回常规工作模式</h4>
-<p>2个模块的PIO11引脚都接地，重新上电后进入常规工作模式，自动完成配对。之后，串口调试助手A和串口调试助手B就能互传数据了。</p>
-</li>
-</ol>
-<h4 id="四-注意">四、注意</h4>
-<p>具体的AT指令需要查询你使用的那款蓝牙的AT手册，一般仅需要设置蓝牙的波特率、主从状态即可正常使用。<br>
-在设置AT时需注意：</p>
-<ol>
-<li>如何进入蓝牙的AT模式：有些模块如BT04-A上电便自动进入AT模式，如HC-05需要先按住模块左上角的按钮，然后上电，让某一引脚经历高电平台变为低电平的过程，即可进入AT指令设置模式。同时注意在实际HC-05的购买中，有些商家会直接将一些HC-05作为从机销售，所以有些HC-05模块没有焊接按钮，因此我们可以自己焊接按钮，或使用导电的物品（杜邦线、镊子），让那个引脚置高。<strong>对于HC-05来说，模块指示灯快闪表示蓝牙未连接，慢闪表示进入AT模式，双闪表示蓝牙已连接并打开端口。</strong></li>
-<li>打开串口助手，选择正确的端口号。</li>
-<li>设置AT需要在该模块规定的固定初始波特率下设置（HC-05为38400），而有些蓝牙模块需要在你上次设置的波特率下进行AT指令的发送。</li>
-<li>有些模块在发送AT指令时，需要在自己写在发送区的AT指令过后加回车&quot;\ｒ\n&quot;，同时注意区分大小写。</li>
-<li>具体有哪些AT指令以及它们的意义需要参考该模块的《AT指令集》</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://github.com/wanghy7317/wanghy7317.github.io/post/hello-gridea/</id>
-        <link href="https://github.com/wanghy7317/wanghy7317.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+        <content type="html"><![CDATA[<p>摘要</p>
 ]]></content>
     </entry>
 </feed>
