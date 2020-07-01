@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>class继承 | Why的个人站</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://github.com/wanghy7317/wanghy7317.github.io/favicon.ico?v=1593573856884">
+<link rel="stylesheet" href="https://github.com/wanghy7317/wanghy7317.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+1 继承
+
+在Python中，同时支持单继承与多继承，一般语法如下：
+
+class SubClassName(ParentClass1 [, ParentClass2, ...]):
+    class_suite
+
+
+实现继承之后，子类..." />
+    <meta name="keywords" content="1,2,3" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://github.com/wanghy7317/wanghy7317.github.io">
+        <img src="https://github.com/wanghy7317/wanghy7317.github.io/images/avatar.png?v=1593573856884" class="site-logo">
+        <h1 class="site-title">Why的个人站</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      七两清晨
+    </div>
+    <div class="site-footer">
+      辽ICP备19017768号 | <a class="rss" href="https://github.com/wanghy7317/wanghy7317.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">class继承</h2>
+            <div class="post-date">2020-07-01</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<h1 id="1-继承">1 继承</h1>
+<ol>
+<li>在Python中，同时支持<strong>单继承与多继承</strong>，一般语法如下：</li>
+</ol>
+<pre><code class="language-python">class SubClassName(ParentClass1 [, ParentClass2, ...]):
+    class_suite
+</code></pre>
+<ol start="2">
+<li>实现继承之后，<strong>子类将继承父类的属性，也可以使用内建函数insubclass()来判断一个类是不是另一个类的子孙类</strong></li>
+</ol>
+<h1 id="2-super函数">2 super()函数</h1>
+<h2 id="21-描述">2.1 描述</h2>
+<p><strong>super()</strong> 函数是用于调用父类(超类)的一个方法。(根据MRO确定)</p>
+<p><strong>super和父类没有实质性的关联</strong>。（见实例）</p>
+<h2 id="22-语法">2.2 语法</h2>
+<pre><code class="language-python">super().xxx  #Python 3.x
+</code></pre>
+<h2 id="23-实例">2.3 实例</h2>
+<pre><code class="language-python"># 这是一个稍微复杂的多重继承的例子
+# 继承关系是【菱形继承】
+#      A
+#    /   \
+#   B     C
+#    \   /
+#      D
+
+
+class A():
+    def __init__(self):
+        print('enter A')
+        print('leave A')
+
+        
+class B(A):
+    def __init__(self):
+        print('enter B')
+        super().__init__()
+        print('leave B')
+
+        
+class C(A):
+    def __init__(self):
+        print('enter C')
+        super().__init__()
+        print('leave C')
+
+        
+class D(B, C):
+    def __init__(self):
+        print('enter D')
+        super().__init__()
+        print('leave D')
+
+        
+d = D()
+</code></pre>
+<p>执行结果是：</p>
+<pre><code class="language-python">enter D
+enter B
+enter C
+enter A
+leave A
+leave C
+leave B
+leave D
+</code></pre>
+<p>结果分析：</p>
+<ol>
+<li>
+<p>理解的关键点在于执行结果中的enter B的下一句为何是enter C而不是enter A</p>
+<p>原因是：super和父类没有实质性的关联，而是在 MRO 列表上搜索下一个类。</p>
+</li>
+</ol>
+<h2 id="24-mro列表">2.4 MRO列表</h2>
+<p>事实上，对于你定义的每一个类，Python 会通过<strong>C3 线性化算法</strong>计算出一个<strong>方法解析顺序（Method Resolution Order, MRO）列表</strong>，<strong>它代表了类继承的顺序</strong>，我们可以使用下面的方式获得某个类的 MRO 列表：</p>
+<pre><code class="language-python">&gt;&gt;&gt; D.mro()   # or C.__mro__ or C().__class__.mro()
+[__main__.D, __main__.B, __main__.C, __main__.A, object]
+</code></pre>
+<p>一个类的 MRO 列表就是合并所有父类的 MRO 列表，并遵循以下三条原则：</p>
+<ul>
+<li>子类永远在父类前面</li>
+<li>如果有多个父类，会根据它们在列表中的顺序被检查</li>
+<li>如果对下一个类存在两个合法的选择，选择第一个父类</li>
+</ul>
+<h2 id="25-super原理">2.5 super()原理</h2>
+<p>当执行<code>super().__init__()</code>时，python会先获取当前的MRO列表，然后搜索当前类的下一个类。</p>
+<p>所以enter B的下一句是enter C。</p>
+<p>参考资料：</p>
+<ol>
+<li>
+<p>https://blog.csdn.net/brucewong0516/article/details/79121179</p>
+</li>
+<li>
+<p>https://www.runoob.com/python/python-func-super.html</p>
+</li>
+<li>
+<p>https://wiki.jikexueyuan.com/project/explore-python/Class/super.html</p>
+</li>
+</ol>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://github.com/wanghy7317/wanghy7317.github.io/tag/2kB4RfHTS/" class="tag">
+                    1
+                  </a>
+                
+                  <a href="https://github.com/wanghy7317/wanghy7317.github.io/tag/0TKw6HOn4d/" class="tag">
+                    2
+                  </a>
+                
+                  <a href="https://github.com/wanghy7317/wanghy7317.github.io/tag/d73OtwVcU7/" class="tag">
+                    3
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://github.com/wanghy7317/wanghy7317.github.io/post/蓝牙串口调试/">
+                  <h3 class="post-title">
+                    蓝牙串口调试
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
